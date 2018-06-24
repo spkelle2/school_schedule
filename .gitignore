@@ -1,0 +1,7 @@
+*.pyc
+*.swp
+*.lp
+*.png
+*.sock
+*.ipynb*
+

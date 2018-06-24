@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>School Schedules</title>   
+    </head>
+    <body>
+        <!-- Upload form. Note enctype attribute! -->
+        <form action="{% url 'add' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p>{{ form.non_field_errors }}</p>
+            <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
+            <p>
+                {{ form.docfile.errors }}
+                {{ form.docfile }}
+            </p>
+            <p><input type="submit" value="Upload" /></p>
+        </form>
+        <form action="{% url 'list' %}" method="get">
+            <p><input type="submit" value="Back to List" /></p>
+        </form>
+    </body>
+</html>
