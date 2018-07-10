@@ -1,7 +1,26 @@
+#!/bin/bash
+
 NAME='school_schedule'
 DJANGODIR=~/school_schedule/school_schedule
 SOCKFILE=~/school_schedule/school_schedule/school_schedule.sock
+ENVDIR=~/miniconda3/envs/env_ss/bin/gunicorn
 USER=ubuntu
 NUM_WORKERS=3
 DJANGO_SETTINGS_MODULE=school_schedule.settings
 DJANGO_WSGI_MODULE=school_schedule.wsgi
+
+echo "Starting $NAME as `whoami`"
+
+# Activate the virtual environment
+source activate env_ss 
+
+# Change to our working directory
+cd $DJANGODIR
+
+exec $ENVDIR ${DJANGO_WSGI_MODULE}:application \
+    --name $NAME \
+    --workers $NUM_WORKERS \
+    --user=$USER \
+    --bind=unix:$SOCKFILE \
+    --log-level=debug \
+    --log-file=-
