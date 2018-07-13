@@ -1,22 +1,22 @@
 upstream school_schedule_server {
-    server unix:/home/ubuntu/school_schedule/school_schedule/school_schedule.sock fail_timeout=0;
+    server unix:/home/sean/school_schedule/school_schedule/school_schedule.sock fail_timeout=0;
 }
 
 server {
-    listen   80;
-    server_name www.schoolschedules.org schoolschedules.org
+    listen   8080;
+    server_name www.schoolschedules.org schoolschedules.org;
 
     client_max_body_size 4G;
 
-    access_log /home/ubuntu/school_schedule/logs/nginx-access.log;
-    error_log /home/ubuntu/school_schedule/logs/nginx-error.log;
+    access_log /home/sean/school_schedule/logs/nginx-access.log;
+    error_log /home/sean/school_schedule/logs/nginx-error.log;
 
     location /static/ {
-        alias   /home/ubuntu/school_schedule/school_schedule/static/;
+        alias   /home/sean/school_schedule/school_schedule/static/;
     }
 
     location /media/ {
-        alias   /home/ubuntu/school_schedule/school_schedule/media/;
+        alias   /home/sean/school_schedule/school_schedule/media/;
     }
 
     location / {
@@ -26,6 +26,6 @@ server {
         if (!-f $request_filename) {
             proxy_pass http://school_schedule_server;
             break;
-	}
+	    }
     }
 }

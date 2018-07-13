@@ -25,8 +25,7 @@ SECRET_KEY = 'us0%1*uicfv%e9)4n+g!k91$g705_!e_jr)n!v5hy9jbc@c+f_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['http://schoolschedules.org', 'www.schoolschedules.org',
-		 'schoolschedules.org', '54.218.225.110']
+ALLOWED_HOSTS = ['www.schoolschedules.org', '127.0.0.1']
 
 
 # Application definition
