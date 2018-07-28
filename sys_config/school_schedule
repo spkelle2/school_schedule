@@ -3,7 +3,7 @@ upstream school_schedule_server {
 }
 
 server {
-    listen   8080;
+    listen   80;
     server_name www.schoolschedules.org schoolschedules.org;
 
     client_max_body_size 4G;
