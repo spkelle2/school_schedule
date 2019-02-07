@@ -4,4 +4,4 @@
 *.png
 *.sock
 *.ipynb*
-
+*.log
