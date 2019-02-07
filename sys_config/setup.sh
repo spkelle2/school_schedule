@@ -22,6 +22,7 @@ systemctl enable supervisor
 systemctl start supervisor
 
 # have supervisor reread the conf files and restart apps with changed confs
+# this creates the sock file
 supervisorctl reread
 supervisorctl update
 
