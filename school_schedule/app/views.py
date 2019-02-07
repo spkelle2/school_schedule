@@ -24,7 +24,7 @@ def list(request):
             newdoc.delete()
 
             # build the schedule
-            file_path = os.path.join(settings.MEDIA_ROOT, request.FILES['docfile'].name)
+            file_path = os.path.join(settings.MEDIA_ROOT, 'uploads', request.FILES['docfile'].name)
             response = create_schedule(file_path)
             
             if response == 'Failed':
